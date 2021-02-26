@@ -32,3 +32,12 @@ func TestGetEnvInt(t *testing.T) {
 	assert.Equal(t, value, 20)
 	assert.Equal(t, value2, 10)
 }
+
+func TestGetEnvFloat(t *testing.T) {
+	// SET_STRING_GETENV must have been set before
+	value, _ := GetEnvFloat("SET_FLOAT_GETENV", 0.64)
+	value2, _ := GetEnvFloat("NOT_SET_FLOAT_GETENV", 0.64)
+
+	assert.Equal(t, value, 0.32)
+	assert.Equal(t, value2, 0.64)
+}
