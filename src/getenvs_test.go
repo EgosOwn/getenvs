@@ -23,3 +23,12 @@ func TestGetEnvBool(t *testing.T) {
 	assert.Equal(t, value, true)
 	assert.Equal(t, value2, false)
 }
+
+func TestGetEnvInt(t *testing.T) {
+	// SET_STRING_GETENV must have been set before
+	value, _ := GetEnvInt("SET_INT_GETENV", 10)
+	value2, _ := GetEnvInt("NOT_SET_INT_GETENV", 10)
+
+	assert.Equal(t, value, 20)
+	assert.Equal(t, value2, 10)
+}
