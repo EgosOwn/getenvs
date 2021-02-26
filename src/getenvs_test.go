@@ -14,3 +14,12 @@ func TestGetEnvString(t *testing.T) {
 	assert.Equal(t, value, "env-has-set")
 	assert.Equal(t, value2, "default-string-value")
 }
+
+func TestGetEnvBool(t *testing.T) {
+	// SET_STRING_GETENV must have been set before
+	value, _ := GetEnvBool("SET_BOOL_GETENV", false)
+	value2, _ := GetEnvBool("NOT_SET_BOOL_GETENV", false)
+
+	assert.Equal(t, value, true)
+	assert.Equal(t, value2, false)
+}
