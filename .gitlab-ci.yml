@@ -1,0 +1,10 @@
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+    - echo "Running unit tests"
+    - cd ./src
+    - go mod download
+    - go test -cover ./...
