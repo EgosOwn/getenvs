@@ -1,0 +1,10 @@
+image: golang:1.15.0-buster
+
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+    - echo "Running unit tests"
+    - ./test.sh
